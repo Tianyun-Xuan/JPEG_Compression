@@ -11,10 +11,21 @@
 变换后还可以进行高频过滤。  
 ![DCT2图示](graphe/2.png)
 ![DCT2算式](graphe/3.png)  
-
 经过DCT2变换的图像：  
 ![imdct](graphe/imdct.png)
-##
+## 量化 Quantification
+高频率的信息更难被眼睛捕捉 用quant矩阵模拟眼睛的感知能力 对进行过DCT的图像再进行分块(8x8)量化  
+量化效果通常用量化玩之后矩阵的中0的占比来衡量  
+图像量化后0的占比例高达 **96.2734%**  
+另外一种评估图像质量的方法是计算 Peak Signal to Noise Ratio(峰值信噪比) 的值  
+PSNR值越大，就代表失真越少  
+![PSNR](graphe/5.png)  
+这里解码后的图像PSNR能得到 **30db** 左右的PSNR 还是人眼能察觉出差异的级别  
+  |**<10db**|人眼无法判断图片是否相同|
+  |**10-20db**|人眼可以识别原始结构|
+  |**20-30db**|人眼可以感觉出差异|
+  |**>30db**|人眼很难察觉压缩后图片的变化|
+  |**~50db**|压缩图像仅存在微小误差|
 ## 编码
 Run Length
 The DC coefficient of the 2D-DCT (discrete cosine transform) of an 8 x 8 image block,represents the average value of the samples within the 8 x 8 block.

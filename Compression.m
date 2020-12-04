@@ -34,8 +34,8 @@ for l=1:64
 end
 % figure
 % imshow(imquant,[0 255])
-nombrezeros=(512*512-nnz(imquant));
-pourcentzeros=100*nombrezeros/(512*512);
+% nombrezeros=(512*512-nnz(imquant));
+% pourcentzeros=100*nombrezeros/(512*512);
 %量化效果可以用 0值的占比来进行衡量
 
 
