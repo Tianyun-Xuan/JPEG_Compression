@@ -4,8 +4,7 @@
 压缩流程：DCT2->量化->曲线阅读->编码->压缩码  
 ![Jpegy压缩流程](graphe/1.png)  
 原图如下：  
-
-  ![原图](graphe/lena512.png)
+![原图](graphe/lena512.png)
 ## 二维离散余弦变换 DCT2
 将图片分成8x8的矩阵进行DCT2变换  
 变换的好处是一方面，从图像处理的整体流程而言，变换后便于后续处理；另一方面，从编码的角度而言，变换后使图像信息集中，在数学上体现为描述关键信息的系数变少，相应的，所需存储空间降低，达到降低视频体积的目的。  
@@ -13,8 +12,8 @@
 ![DCT2图示](graphe/2.png)
 ![DCT2算式](graphe/3.png)  
 
-经过DCT2变换的图像：
-  ![imdct](graphe/imdct.png)
+经过DCT2变换的图像：  
+![imdct](graphe/imdct.png)
 ##
 ## 编码
 Run Length
