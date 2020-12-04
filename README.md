@@ -20,13 +20,15 @@
 另外一种评估图像质量的方法是计算 Peak Signal to Noise Ratio(峰值信噪比) 的值  
 PSNR值越大，就代表失真越少  
 ![PSNR](graphe/5.png)  
-这里解码后的图像PSNR能得到 **30db** 左右的PSNR 还是人眼能察觉出差异的级别 
-  |：---|：---|  
-  |**<10db**|人眼无法判断图片是否相同|  
-  |**10-20db**|人眼可以识别原始结构|  
-  |**20-30db**|人眼可以感觉出差异|  
-  |**>30db**|人眼很难察觉压缩后图片的变化|  
-  |**~50db**|压缩图像仅存在微小误差|  
+这里解码后的图像PSNR能得到 **30db** 左右的PSNR 还是人眼能察觉出差异的级别  
+PSNR         |图像效果  
+-------------|----------------------                   
+**<10db**    |人眼无法判断图片是否相同
+**10-20db**  |人眼可以识别原始结构 
+**20-30db**  |人眼可以感觉出差异 
+**>30db**    |人眼很难察觉压缩后图片的变化  
+**~50db**    |压缩图像仅存在微小误差 
+
 ## 编码
 Run Length
 The DC coefficient of the 2D-DCT (discrete cosine transform) of an 8 x 8 image block,represents the average value of the samples within the 8 x 8 block.
