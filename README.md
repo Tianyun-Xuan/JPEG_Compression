@@ -38,12 +38,14 @@ The DC coefficient of the 2D-DCT (discrete cosine transform) of an 8 x 8 image b
 ### Zig-Zag读取
 从矩阵左上角的DC值开始蛇形读取值，因为低频信号集中在左上角  
 ![zz](graphe/6.png)  
+例如经过读取我们获取了如下一串数：**-4000003006**
 ### Run Length
 Run Length Encoding (sur les zéros).  
 AC编码写法为 (x1,y1)B1(x2,y2)B2...其中:
 * B1表示非0数的二进制编码  
 * x1指的是B1所指的数之前有多少个0  
 * y1指的是B1二进制编码的长度.  
+我们对之前读取的数进行编码为：*(0,3)***001***(5,2)***11***(2,3)***110**
 二进制数B的编码方式：  
 ![B](graphe/7.png)  
 DC编码方式为此矩阵DC值与前一矩阵DC值做差输出,DC(0)=0.  
