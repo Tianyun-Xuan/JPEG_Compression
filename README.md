@@ -45,9 +45,13 @@ AC编码写法为 (x1,y1)B1(x2,y2)B2...
 二进制数B的编码方式：  
 ![B](graphe/7.png)  
 DC编码方式为此矩阵DC值与前一矩阵DC值做差输出,DC(0)=0.  
-**DiffDC(i) = DC(i) - DC(i-1)**  
+    **DiffDC(i) = DC(i) - DC(i-1)**  
 DC编码参考：
 ![DC](graphe/9.png)  
 ### Codage entropiaue 熵编码法(Huffman)
 霍夫曼编码(Huffman)和算术编码(arithmetic coding)是两种最常见的熵编码技术,算数编码器不常见.  
-将之前Run Length 码中的(x,y)部分再次编码，B部分不动
+将之前Run Length 码中的(x,y)部分再次编码，B部分不动.  
+AC部分Huffman编码：  
+![AC](graphe/8.png)  
+DC的Huffman码:  
+![DCH](graphe/10.png)  
