@@ -11,6 +11,8 @@
 变换后还可以进行高频过滤。  
 ![DCT2图示](graphe/2.png)
 ![DCT2算式](graphe/3.png)  
+DCT2变换之后图像的信息会集中在左上角的低频区域：  
+![DCT2R](graphe/4.png)  
 经过DCT2变换的图像：  
 ![imdct](graphe/imdct.png)
 ## 量化 Quantification
@@ -29,15 +31,23 @@ PSNR         |图像效果
 **~50db**    |压缩图像仅存在微小误差 
 
 ## 编码
-Run Length
+编码的过程分三个步骤:Zig-Zag读取,Run Length编码和最后的熵编码法  
+在编码过程中,矩阵内数值被分为两个部分DC值和AC值，要分开进行编码  
 The DC coefficient of the 2D-DCT (discrete cosine transform) of an 8 x 8 image block,represents the average value of the samples within the 8 x 8 block.
 矩阵最左上角的是采样平均值 跟FFT一样 被称为 此矩阵的DC值 此矩阵剩余的值被称为AC值
-采用 Run Length Encoding (sur les zéros)
-从矩阵左上角的DC值开始蛇形读取值，因为低频信号集中在左上角
-编码写法为 (x1,y1)B1(x2,y2)B2...
-其中B1表示非0数的二进制编码 如 -4->011
-x1指的是B1所指的数之前有多少个0
-y1指的是B1二进制编码的长度
-    
-Codage entropiaue (Huffman)
-   将之前Run Length 码中的(x,y)部分再次编码，B部分不动
+### Zig-Zag读取
+从矩阵左上角的DC值开始蛇形读取值，因为低频信号集中在左上角  
+![zz](graphe/6.png)  
+### Run Length
+Run Length Encoding (sur les zéros).  
+AC编码写法为 (x1,y1)B1(x2,y2)B2...
+其中B1表示非0数的二进制编码,x1指的是B1所指的数之前有多少个0,y1指的是B1二进制编码的长度.  
+二进制数B的编码方式：  
+![B](graphe/7.png)  
+DC编码方式为此矩阵DC值与前一矩阵DC值做差输出,DC(0)=0.  
+**DiffDC(i) = DC(i) - DC(i-1)**  
+DC编码参考：
+![DC](graphe/9.png)  
+### Codage entropiaue 熵编码法(Huffman)
+霍夫曼编码(Huffman)和算术编码(arithmetic coding)是两种最常见的熵编码技术,算数编码器不常见.  
+将之前Run Length 码中的(x,y)部分再次编码，B部分不动
