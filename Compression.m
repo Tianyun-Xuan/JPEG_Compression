@@ -4,11 +4,15 @@ clc;
 %% 初始化
 load lena512;
 load quant;
+% figure
+% imshow(lena512,[0,255]);
 imdct=zeros(512,512);
 lena=lena512-128;%[0,255]->[-128,127]
 alpha=5;%调节感知能力
 quant=alpha*quant;%模拟人眼的量化矩阵
 %JPEG 压缩流程：DCT2->量化->曲线阅读->编码->压缩码
+% figure
+% imshow(lena512,[0,255]);
 
 %% 二维离散余弦变换 DCT2
 %一方面，从图像处理的整体流程而言，变换后便于后续处理；
