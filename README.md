@@ -1,7 +1,7 @@
 # JPEG_Compression
 在matlab里实现JPEG的压缩
 ## JPEG压缩的基本流程
-(！graphe/1.png)
+![Jpegy压缩流程](graphe/1.png)
 ##
 %% 编码
 % Run Length
